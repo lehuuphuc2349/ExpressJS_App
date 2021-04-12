@@ -46,8 +46,7 @@ exports.find = (req, res) => {
 
 exports.update = (req, res) => {
   if (!req.body) {
-    res.status(400).send({ message: "Content can not be empty" });
-    return;
+    return res.status(400).send({ message: "Content can not be empty" });
   }
   const id = req.params.id;
   UserDb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
